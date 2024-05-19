@@ -20,7 +20,7 @@ Feature: Main menu correct URL navigation
     When user clicks on the shopping cart button button
     Then user is redirected to the shopping cart page
 
-  Scenario: The Oferta zilei button redirects to the Genius deals page
+  Scenario: The "Oferta zilei" button redirects to the "Oferta zilei" page
     Given user is on the Main Page
     When user clicks on the "Oferta zilei" button
     Then user is redirected to the "Oferta zilei" page
