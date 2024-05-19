@@ -91,7 +91,7 @@ def step_impl(context):
     context.main_menu_link_page.click_rabla_button()
 
 
-@then('user is redirected to the details page about Rabla" program')
+@then('user is redirected to the details page about "Rabla" program')
 def step_impl(context):
     context.main_menu_link_page.test_rabla_button()
 

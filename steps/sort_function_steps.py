@@ -1,9 +1,9 @@
 from behave import *
 
 
-@given("user is on the Main Page")
-def step_impl(context):
-    context.sort_function_page.go_to_main_page()
+# @given("user is on the Main Page")
+# def step_impl(context):
+#     context.sort_function_page.go_to_main_page()
 
 
 @given('user searches the product')

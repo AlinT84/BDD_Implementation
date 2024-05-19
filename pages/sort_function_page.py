@@ -23,20 +23,24 @@ class SortFunctionPage(BasePage):
     def go_to_main_page(self):
         self.driver.get(self.URL)
 
-    def search_product(self, search_term):
+    def search_product(self):
+        self.element_is_visible(self.SEARCH_FIELD, 10)
         self.find(self.SEARCH_FIELD).clear()
-        self.type(locator=self.SEARCH_FIELD, text=search_term)
+        self.type(locator=self.SEARCH_FIELD, text=self.SEARCH_TERM)
         self.click(self.SEARCH_SELECTOR)
 
     def click_sort_menu(self):
+        self.element_is_visible(self.SORT_MENU, 10)
         self.click(self.SORT_MENU)
 
     def select_ascending_option(self):
+        self.element_is_visible(self.ASCENDING_ORDER_OPTION, 10)
         self.click(self.ASCENDING_ORDER_OPTION)
 
     def assert_ascending_order(self):
+        self.elements_are_present(self.PRICES, 10)
         # Extract product prices after sorting
-        sorted_prices = self.extract_data_from_elements(self.driver, self.PRICES, flow="prices")
+        sorted_prices = self.extract_data_from_elements(self.PRICES, flow="prices")
 
         # Validate sorting order
         is_ascending = sorted(sorted_prices)
@@ -45,11 +49,13 @@ class SortFunctionPage(BasePage):
         assert sorted_prices == is_ascending
 
     def select_descending_option(self):
+        self.element_is_visible(self.ASCENDING_ORDER_OPTION, 10)
         self.click(self.ASCENDING_ORDER_OPTION)
 
     def assert_descending_order(self):
+        self.elements_are_present(self.PRICES, 10)
         # Extract product prices after sorting
-        sorted_prices = self.extract_data_from_elements(self.driver, self.PRICES, flow="prices")
+        sorted_prices = self.extract_data_from_elements(self.PRICES, flow="prices")
 
         # Validate sorting order
         is_descending = sorted(sorted_prices)
@@ -58,11 +64,13 @@ class SortFunctionPage(BasePage):
         assert sorted_prices == is_descending
 
     def select_review_order(self):
+        self.element_is_visible(self.REVIEWS_NB_OPTION, 10)
         self.click(self.REVIEWS_NB_OPTION)
 
     def assert_by_review_order(self):
+        self.elements_are_present(self.REVIEWS_NB, 10)
         # Extract product prices after sorting
-        sorted_prices_by_reviews = self.extract_data_from_elements(self.driver, self.REVIEWS_NB, flow="numbers")
+        sorted_prices_by_reviews = self.extract_data_from_elements(self.REVIEWS_NB, flow="numbers")
 
         # Validate sorting order
         is_sorted_prices_by_reviews = sorted(sorted_prices_by_reviews)
