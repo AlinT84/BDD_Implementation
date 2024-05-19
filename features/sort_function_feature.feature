@@ -1,4 +1,4 @@
-Feature: Sort functionality
+Feature: Sort function
 
   Scenario: Sort the results in ascending price order
     Given user is on the Main Page
